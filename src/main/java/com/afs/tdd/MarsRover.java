@@ -3,15 +3,15 @@ package com.afs.tdd;
 import java.util.Arrays;
 import java.util.List;
 
+import static com.afs.tdd.Direction.EAST;
+import static com.afs.tdd.Direction.NORTH;
+import static com.afs.tdd.Direction.SOUTH;
+import static com.afs.tdd.Direction.WEST;
+
 public class MarsRover {
     private int x;
     private int y;
-    private char direction;
-
-    private final char NORTH = 'N';
-    private final char WEST = 'W';
-    private final char SOUTH = 'S';
-    private final char EAST = 'E';
+    private Direction direction;
 
     private final String MOVE = "M";
     private final String TURN_LEFT = "L";
@@ -19,7 +19,7 @@ public class MarsRover {
 
     private final String EMPTY_STRING = "";
 
-    public MarsRover(int x, int y, char direction) {
+    public MarsRover(int x, int y, Direction direction) {
         this.x = x;
         this.y = y;
         this.direction = direction;
@@ -121,7 +121,7 @@ public class MarsRover {
         return y;
     }
 
-    public char getDirection() {
+    public Direction getDirection() {
         return direction;
     }
 }

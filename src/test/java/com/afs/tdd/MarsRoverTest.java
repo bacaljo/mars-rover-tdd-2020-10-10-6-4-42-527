@@ -3,6 +3,10 @@ package com.afs.tdd;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
 
+import static com.afs.tdd.Direction.EAST;
+import static com.afs.tdd.Direction.NORTH;
+import static com.afs.tdd.Direction.SOUTH;
+import static com.afs.tdd.Direction.WEST;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -11,11 +15,6 @@ class MarsRoverTest {
     private final String MOVE = "M";
     private final String TURN_LEFT = "L";
     private final String TURN_RIGHT = "R";
-
-    private final char NORTH = 'N';
-    private final char WEST = 'W';
-    private final char SOUTH = 'S';
-    private final char EAST = 'E';
 
     private final String INVALID_INSTRUCTION_LETTER = "F";
     private final String INVALID_INSTRUCTION_NUMBER = "1";

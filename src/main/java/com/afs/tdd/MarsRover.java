@@ -34,7 +34,11 @@ public class MarsRover {
     }
 
     private void move() {
-        y++;
+        if (direction == 'N') {
+            y++;
+        } else if (direction == 'S') {
+            y--;
+        }
     }
 
     public int getX() {

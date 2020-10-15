@@ -188,7 +188,7 @@ class MarsRoverTest {
     }
 
     @Test
-    void should_throw_a_command_not_defined_exception_when_Mars_Rover_instruct_rover_given_x_0_y_0_d_W_and_invalid_instruction() {
+    void should_throw_a_command_not_defined_exception_when_Mars_Rover_instruct_rover_given_x_0_y_0_d_W_and_invalid_instructions() {
         // given
         MarsRover marsRover = new MarsRover(0, 0, NORTH);
 
@@ -196,6 +196,8 @@ class MarsRoverTest {
         Executable executables = () -> {
             marsRover.instructRover(INVALID_INSTRUCTION_LETTER);
             marsRover.instructRover(INVALID_INSTRUCTION_NUMBER);
+            marsRover.instructRover(String.format("%s%s%s%s%s%s%s",
+                    TURN_RIGHT, MOVE, INVALID_INSTRUCTION_LETTER, MOVE, INVALID_INSTRUCTION_NUMBER, MOVE, TURN_LEFT));
         };
 
         // then

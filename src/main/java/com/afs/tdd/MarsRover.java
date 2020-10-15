@@ -45,6 +45,9 @@ public class MarsRover {
             case SOUTH:
                 direction = EAST;
                 break;
+            case EAST:
+                direction = NORTH;
+                break;
         }
     }
 

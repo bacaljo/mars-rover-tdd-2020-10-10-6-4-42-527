@@ -14,6 +14,14 @@ public class MarsRover {
     public void instructRover(String instructions) {
         if (instructions.equals("M")) {
             move();
+        } else if (instructions.equals("L")) {
+            turnLeft();
+        }
+    }
+
+    private void turnLeft() {
+        if (direction == 'N') {
+            direction = 'W';
         }
     }
 

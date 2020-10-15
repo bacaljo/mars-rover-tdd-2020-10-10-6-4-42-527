@@ -65,6 +65,9 @@ public class MarsRover {
             case EAST:
                 x++;
                 break;
+            case WEST:
+                x--;
+                break;
         }
     }
 

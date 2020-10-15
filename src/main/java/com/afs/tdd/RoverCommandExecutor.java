@@ -24,16 +24,8 @@ public class RoverCommandExecutor {
 
     public void commandRover(String commands) throws CommandNotDefinedException {
         validateCommands(commands);
-        List<String> commandList = parseCommands(commands);
-        performCommands(commandList);
-    }
-
-    private void performCommands(List<String> commandList) {
+        List<String> commandList = Arrays.asList(commands.split(EMPTY_STRING));
         commandList.forEach(command -> stringCommandMap.get(command).execute());
-    }
-
-    private List<String> parseCommands(String commands) {
-        return Arrays.asList(commands.split(EMPTY_STRING));
     }
 
     private void validateCommands(String commands) throws CommandNotDefinedException {

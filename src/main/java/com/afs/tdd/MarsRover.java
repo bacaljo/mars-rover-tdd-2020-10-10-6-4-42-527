@@ -20,15 +20,15 @@ public class MarsRover {
         this.direction = direction;
     }
 
-    public void instructRover(String instructions) throws CommandNotDefinedException {
-        validateInstructions(instructions);
-        List<String> instructionList = parseInstructions(instructions);
-        performInstructions(instructionList);
+    public void commandRover(String commands) throws CommandNotDefinedException {
+        validateCommands(commands);
+        List<String> commandList = parseCommands(commands);
+        performCommands(commandList);
     }
 
-    private void performInstructions(List<String> instructionList) {
-        for (String instruction : instructionList) {
-            switch (instruction) {
+    private void performCommands(List<String> commandList) {
+        for (String command : commandList) {
+            switch (command) {
                 case MOVE:
                     move();
                     break;
@@ -42,18 +42,18 @@ public class MarsRover {
         }
     }
 
-    private List<String> parseInstructions(String instructions) {
-        return Arrays.asList(instructions.split(EMPTY_STRING));
+    private List<String> parseCommands(String commands) {
+        return Arrays.asList(commands.split(EMPTY_STRING));
     }
 
-    private void validateInstructions(String instructions) throws CommandNotDefinedException {
-        boolean isValid = instructions.replace(MOVE, EMPTY_STRING)
+    private void validateCommands(String commands) throws CommandNotDefinedException {
+        boolean isValid = commands.replace(MOVE, EMPTY_STRING)
                 .replace(TURN_LEFT, EMPTY_STRING)
                 .replace(TURN_RIGHT, EMPTY_STRING)
                 .trim()
                 .isEmpty();
         if (!isValid) {
-            throw new CommandNotDefinedException(String.format("Instructions contained unsupported values. Only the following can be used: %s, %s and %s",
+            throw new CommandNotDefinedException(String.format("Commands contained unsupported values. Only the following can be used: %s, %s and %s",
                     MOVE, TURN_LEFT, TURN_RIGHT));
         }
     }

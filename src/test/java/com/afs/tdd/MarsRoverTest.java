@@ -1,8 +1,10 @@
 package com.afs.tdd;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.function.Executable;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class MarsRoverTest {
 
@@ -177,5 +179,20 @@ class MarsRoverTest {
         assertEquals(0, marsRover.getX());
         assertEquals(0, marsRover.getY());
         assertEquals(NORTH, marsRover.getDirection());
+    }
+
+    @Test
+    void should_throw_a_command_not_defined_exception_when_Mars_Rover_instruct_rover_given_x_0_y_0_d_W_and_invalid_instruction() {
+        // given
+        MarsRover marsRover = new MarsRover(0, 0, NORTH);
+
+        // when
+        Executable executables = () -> {
+            marsRover.instructRover("F");
+            marsRover.instructRover("1");
+        };
+
+        // then
+        assertThrows(CommandNotDefinedException.class, executables);
     }
 }

@@ -96,7 +96,7 @@ class MarsRoverTest {
     }
 
     @Test
-    void should_return_x_1_y_0_d_W_when_Mars_Rover_instruct_rover_given_x_0_y_0_d_E_and_M() {
+    void should_return_x_1_y_0_d_E_when_Mars_Rover_instruct_rover_given_x_0_y_0_d_E_and_M() {
         // given
         MarsRover marsRover = new MarsRover(0, 0, EAST);
 

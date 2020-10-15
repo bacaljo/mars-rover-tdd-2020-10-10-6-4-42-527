@@ -5,6 +5,11 @@ public class MarsRover {
     private int y;
     private char direction;
 
+    private final char NORTH = 'N';
+    private final char WEST = 'W';
+    private final char SOUTH = 'S';
+    private final char EAST = 'E';
+
     public MarsRover(int x, int y, char direction) {
         this.x = x;
         this.y = y;
@@ -28,8 +33,13 @@ public class MarsRover {
     }
 
     private void turnLeft() {
-        if (direction == 'N') {
-            direction = 'W';
+        switch(direction) {
+            case NORTH:
+                direction = WEST;
+                break;
+            case SOUTH:
+                direction = EAST;
+                break;
         }
     }
 

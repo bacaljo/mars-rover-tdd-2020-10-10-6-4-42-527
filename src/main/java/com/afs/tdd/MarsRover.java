@@ -12,7 +12,13 @@ public class MarsRover {
     }
 
     public void instructRover(String instructions) {
+        if (instructions.equals("M")) {
+            move();
+        }
+    }
 
+    private void move() {
+        y++;
     }
 
     public int getX() {

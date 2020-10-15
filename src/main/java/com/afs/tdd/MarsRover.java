@@ -3,11 +3,6 @@ package com.afs.tdd;
 import java.util.Arrays;
 import java.util.List;
 
-import static com.afs.tdd.Direction.EAST;
-import static com.afs.tdd.Direction.NORTH;
-import static com.afs.tdd.Direction.SOUTH;
-import static com.afs.tdd.Direction.WEST;
-
 public class MarsRover {
     private int x;
     private int y;
@@ -63,37 +58,21 @@ public class MarsRover {
     }
 
     private void turnRight() {
-        switch (direction) {
-            case NORTH:
-                direction = EAST;
-                break;
-            case EAST:
-                direction = SOUTH;
-                break;
-            case SOUTH:
-                direction = WEST;
-                break;
-            case WEST:
-                direction = NORTH;
-                break;
-        }
+        int currentIndex = direction.ordinal();
+        int lastIndex = Direction.values().length - 1;
+
+        direction = (currentIndex == lastIndex)
+                ? Direction.values()[0]
+                : Direction.values()[currentIndex + 1];
     }
 
     private void turnLeft() {
-        switch (direction) {
-            case NORTH:
-                direction = WEST;
-                break;
-            case WEST:
-                direction = SOUTH;
-                break;
-            case SOUTH:
-                direction = EAST;
-                break;
-            case EAST:
-                direction = NORTH;
-                break;
-        }
+        int currentIndex = direction.ordinal();
+        int lastIndex = Direction.values().length - 1;
+
+        direction = (currentIndex == 0)
+                ? Direction.values()[lastIndex]
+                : Direction.values()[currentIndex - 1];
     }
 
     private void move() {

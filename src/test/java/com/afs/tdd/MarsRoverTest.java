@@ -3,10 +3,10 @@ package com.afs.tdd;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
 
-import static com.afs.tdd.Direction.EAST;
-import static com.afs.tdd.Direction.NORTH;
-import static com.afs.tdd.Direction.SOUTH;
-import static com.afs.tdd.Direction.WEST;
+import static com.afs.tdd.property.Direction.EAST;
+import static com.afs.tdd.property.Direction.NORTH;
+import static com.afs.tdd.property.Direction.SOUTH;
+import static com.afs.tdd.property.Direction.WEST;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 

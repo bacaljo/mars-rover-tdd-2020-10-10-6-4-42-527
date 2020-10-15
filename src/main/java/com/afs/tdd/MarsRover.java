@@ -1,5 +1,7 @@
 package com.afs.tdd;
 
+import com.afs.tdd.property.Direction;
+
 import java.util.Arrays;
 import java.util.List;
 

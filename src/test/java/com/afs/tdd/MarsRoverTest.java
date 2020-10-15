@@ -195,4 +195,18 @@ class MarsRoverTest {
         // then
         assertThrows(CommandNotDefinedException.class, executables);
     }
+
+    @Test
+    void should_return_x_4_y_6_d_N_when_Mars_Rover_instruct_rover_given_x_5_y_5_d_N_and_MLMR() throws CommandNotDefinedException {
+        // given
+        MarsRover marsRover = new MarsRover(5, 5, NORTH);
+
+        // when
+        marsRover.instructRover("MLMR");
+
+        // then
+        assertEquals(4, marsRover.getX());
+        assertEquals(6, marsRover.getY());
+        assertEquals(NORTH, marsRover.getDirection());
+    }
 }

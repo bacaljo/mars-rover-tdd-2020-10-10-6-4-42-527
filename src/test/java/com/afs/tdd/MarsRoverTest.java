@@ -14,7 +14,7 @@ class MarsRoverTest {
     @Test
     void should_return_x_0_y_1_d_N_when_Mars_Rover_instruct_rover_given_x_0_y_0_d_N_and_M() {
         // given
-        MarsRover marsRover = new MarsRover(0, 0, 'N');
+        MarsRover marsRover = new MarsRover(0, 0, NORTH);
 
         // when
         marsRover.instructRover("M");
@@ -22,13 +22,13 @@ class MarsRoverTest {
         // then
         assertEquals(0, marsRover.getX());
         assertEquals(1, marsRover.getY());
-        assertEquals('N', marsRover.getDirection());
+        assertEquals(NORTH, marsRover.getDirection());
     }
 
     @Test
     void should_return_x_0_y_0_d_W_when_Mars_Rover_instruct_rover_given_x_0_y_0_d_N_and_L() {
         // given
-        MarsRover marsRover = new MarsRover(0, 0, 'N');
+        MarsRover marsRover = new MarsRover(0, 0, NORTH);
 
         // when
         marsRover.instructRover("L");
@@ -36,13 +36,13 @@ class MarsRoverTest {
         // then
         assertEquals(0, marsRover.getX());
         assertEquals(0, marsRover.getY());
-        assertEquals('W', marsRover.getDirection());
+        assertEquals(WEST, marsRover.getDirection());
     }
 
     @Test
     void should_return_x_0_y_0_d_E_when_Mars_Rover_instruct_rover_given_x_0_y_0_d_N_and_R() {
         // given
-        MarsRover marsRover = new MarsRover(0, 0, 'N');
+        MarsRover marsRover = new MarsRover(0, 0, NORTH);
 
         // when
         marsRover.instructRover("R");
@@ -50,13 +50,13 @@ class MarsRoverTest {
         // then
         assertEquals(0, marsRover.getX());
         assertEquals(0, marsRover.getY());
-        assertEquals('E', marsRover.getDirection());
+        assertEquals(EAST, marsRover.getDirection());
     }
 
     @Test
     void should_return_x_0_y_5_d_S_when_Mars_Rover_instruct_rover_given_x_0_y_6_d_S_and_M() {
         // given
-        MarsRover marsRover = new MarsRover(0, 6, 'S');
+        MarsRover marsRover = new MarsRover(0, 6, SOUTH);
 
         // when
         marsRover.instructRover("M");
@@ -64,13 +64,13 @@ class MarsRoverTest {
         // then
         assertEquals(0, marsRover.getX());
         assertEquals(5, marsRover.getY());
-        assertEquals('S', marsRover.getDirection());
+        assertEquals(SOUTH, marsRover.getDirection());
     }
 
     @Test
     void should_return_x_0_y_0_d_E_when_Mars_Rover_instruct_rover_given_x_0_y_0_d_S_and_L() {
         // given
-        MarsRover marsRover = new MarsRover(0, 0, 'S');
+        MarsRover marsRover = new MarsRover(0, 0, SOUTH);
 
         // when
         marsRover.instructRover("L");
@@ -78,7 +78,7 @@ class MarsRoverTest {
         // then
         assertEquals(0, marsRover.getX());
         assertEquals(0, marsRover.getY());
-        assertEquals('E', marsRover.getDirection());
+        assertEquals(EAST, marsRover.getDirection());
     }
 
     @Test

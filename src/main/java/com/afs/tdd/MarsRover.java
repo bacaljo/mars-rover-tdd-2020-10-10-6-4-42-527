@@ -1,5 +1,8 @@
 package com.afs.tdd;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class MarsRover {
     private int x;
     private int y;
@@ -18,14 +21,28 @@ public class MarsRover {
 
     public void instructRover(String instructions) throws CommandNotDefinedException {
         validateInstructions(instructions);
+        List<String> instructionList = parseInstructions(instructions);
+        performInstructions(instructionList);
+    }
 
-        if (instructions.equals("M")) {
-            move();
-        } else if (instructions.equals("L")) {
-            turnLeft();
-        } else if (instructions.equals("R")) {
-            turnRight();
+    private void performInstructions(List<String> instructionList) {
+        for (String instruction : instructionList) {
+            switch (instruction) {
+                case "M":
+                    move();
+                    break;
+                case "L":
+                    turnLeft();
+                    break;
+                case "R":
+                    turnRight();
+                    break;
+            }
         }
+    }
+
+    private List<String> parseInstructions(String instructions) {
+        return Arrays.asList(instructions.split(""));
     }
 
     private void validateInstructions(String instructions) throws CommandNotDefinedException {

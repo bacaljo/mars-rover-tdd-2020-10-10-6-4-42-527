@@ -53,7 +53,8 @@ public class MarsRover {
                 .trim()
                 .isEmpty();
         if (!isValid) {
-            throw new CommandNotDefinedException();
+            throw new CommandNotDefinedException(String.format("Instructions contained unsupported values. Only the following can be used: %s, %s and %s",
+                    MOVE, TURN_LEFT, TURN_RIGHT));
         }
     }
 

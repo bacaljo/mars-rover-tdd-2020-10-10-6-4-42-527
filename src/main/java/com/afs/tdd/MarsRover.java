@@ -27,8 +27,13 @@ public class MarsRover {
     }
 
     private void turnRight() {
-        if (direction == 'N') {
-            direction = 'E';
+        switch(direction) {
+            case NORTH:
+                direction = EAST;
+                break;
+            case SOUTH:
+                direction = WEST;
+                break;
         }
     }
 

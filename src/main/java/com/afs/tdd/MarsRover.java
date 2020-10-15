@@ -49,9 +49,9 @@ public class MarsRover {
     }
 
     private void move() {
-        if (direction == 'N') {
+        if (direction == NORTH) {
             y++;
-        } else if (direction == 'S') {
+        } else if (direction == SOUTH) {
             y--;
         }
     }

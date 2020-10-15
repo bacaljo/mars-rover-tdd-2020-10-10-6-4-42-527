@@ -13,6 +13,12 @@ public class MarsRover {
     private final char SOUTH = 'S';
     private final char EAST = 'E';
 
+    private final String MOVE = "M";
+    private final String TURN_LEFT = "L";
+    private final String TURN_RIGHT = "R";
+
+    private final String EMPTY_STRING = "";
+
     public MarsRover(int x, int y, char direction) {
         this.x = x;
         this.y = y;
@@ -28,13 +34,13 @@ public class MarsRover {
     private void performInstructions(List<String> instructionList) {
         for (String instruction : instructionList) {
             switch (instruction) {
-                case "M":
+                case MOVE:
                     move();
                     break;
-                case "L":
+                case TURN_LEFT:
                     turnLeft();
                     break;
-                case "R":
+                case TURN_RIGHT:
                     turnRight();
                     break;
             }
@@ -42,13 +48,13 @@ public class MarsRover {
     }
 
     private List<String> parseInstructions(String instructions) {
-        return Arrays.asList(instructions.split(""));
+        return Arrays.asList(instructions.split(EMPTY_STRING));
     }
 
     private void validateInstructions(String instructions) throws CommandNotDefinedException {
-        boolean isValid = instructions.replace("M", "")
-                .replace("L", "")
-                .replace("R", "")
+        boolean isValid = instructions.replace(MOVE, EMPTY_STRING)
+                .replace(TURN_LEFT, EMPTY_STRING)
+                .replace(TURN_RIGHT, EMPTY_STRING)
                 .trim()
                 .isEmpty();
         if (!isValid) {

@@ -8,10 +8,17 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class MarsRoverTest {
 
+    private final String MOVE = "M";
+    private final String TURN_LEFT = "L";
+    private final String TURN_RIGHT = "R";
+
     private final char NORTH = 'N';
     private final char WEST = 'W';
     private final char SOUTH = 'S';
     private final char EAST = 'E';
+
+    private final String INVALID_INSTRUCTION_LETTER = "F";
+    private final String INVALID_INSTRUCTION_NUMBER = "1";
 
     @Test
     void should_return_x_0_y_1_d_N_when_Mars_Rover_instruct_rover_given_x_0_y_0_d_N_and_M() throws CommandNotDefinedException {
@@ -19,7 +26,7 @@ class MarsRoverTest {
         MarsRover marsRover = new MarsRover(0, 0, NORTH);
 
         // when
-        marsRover.instructRover("M");
+        marsRover.instructRover(MOVE);
 
         // then
         assertEquals(0, marsRover.getX());
@@ -33,7 +40,7 @@ class MarsRoverTest {
         MarsRover marsRover = new MarsRover(0, 0, NORTH);
 
         // when
-        marsRover.instructRover("L");
+        marsRover.instructRover(TURN_LEFT);
 
         // then
         assertEquals(0, marsRover.getX());
@@ -47,7 +54,7 @@ class MarsRoverTest {
         MarsRover marsRover = new MarsRover(0, 0, NORTH);
 
         // when
-        marsRover.instructRover("R");
+        marsRover.instructRover(TURN_RIGHT);
 
         // then
         assertEquals(0, marsRover.getX());
@@ -61,7 +68,7 @@ class MarsRoverTest {
         MarsRover marsRover = new MarsRover(0, 6, SOUTH);
 
         // when
-        marsRover.instructRover("M");
+        marsRover.instructRover(MOVE);
 
         // then
         assertEquals(0, marsRover.getX());
@@ -75,7 +82,7 @@ class MarsRoverTest {
         MarsRover marsRover = new MarsRover(0, 0, SOUTH);
 
         // when
-        marsRover.instructRover("L");
+        marsRover.instructRover(TURN_LEFT);
 
         // then
         assertEquals(0, marsRover.getX());
@@ -89,7 +96,7 @@ class MarsRoverTest {
         MarsRover marsRover = new MarsRover(0, 0, SOUTH);
 
         // when
-        marsRover.instructRover("R");
+        marsRover.instructRover(TURN_RIGHT);
 
         // then
         assertEquals(0, marsRover.getX());
@@ -103,7 +110,7 @@ class MarsRoverTest {
         MarsRover marsRover = new MarsRover(0, 0, EAST);
 
         // when
-        marsRover.instructRover("M");
+        marsRover.instructRover(MOVE);
 
         // then
         assertEquals(1, marsRover.getX());
@@ -117,7 +124,7 @@ class MarsRoverTest {
         MarsRover marsRover = new MarsRover(0, 0, EAST);
 
         // when
-        marsRover.instructRover("L");
+        marsRover.instructRover(TURN_LEFT);
 
         // then
         assertEquals(0, marsRover.getX());
@@ -131,7 +138,7 @@ class MarsRoverTest {
         MarsRover marsRover = new MarsRover(0, 0, EAST);
 
         // when
-        marsRover.instructRover("R");
+        marsRover.instructRover(TURN_RIGHT);
 
         // then
         assertEquals(0, marsRover.getX());
@@ -145,7 +152,7 @@ class MarsRoverTest {
         MarsRover marsRover = new MarsRover(6, 0, WEST);
 
         // when
-        marsRover.instructRover("M");
+        marsRover.instructRover(MOVE);
 
         // then
         assertEquals(5, marsRover.getX());
@@ -159,7 +166,7 @@ class MarsRoverTest {
         MarsRover marsRover = new MarsRover(0, 0, WEST);
 
         // when
-        marsRover.instructRover("L");
+        marsRover.instructRover(TURN_LEFT);
 
         // then
         assertEquals(0, marsRover.getX());
@@ -173,7 +180,7 @@ class MarsRoverTest {
         MarsRover marsRover = new MarsRover(0, 0, WEST);
 
         // when
-        marsRover.instructRover("R");
+        marsRover.instructRover(TURN_RIGHT);
 
         // then
         assertEquals(0, marsRover.getX());
@@ -188,8 +195,8 @@ class MarsRoverTest {
 
         // when
         Executable executables = () -> {
-            marsRover.instructRover("F");
-            marsRover.instructRover("1");
+            marsRover.instructRover(INVALID_INSTRUCTION_LETTER);
+            marsRover.instructRover(INVALID_INSTRUCTION_NUMBER);
         };
 
         // then
@@ -202,7 +209,7 @@ class MarsRoverTest {
         MarsRover marsRover = new MarsRover(5, 5, NORTH);
 
         // when
-        marsRover.instructRover("MLMR");
+        marsRover.instructRover(String.format("%s%s%s%s", MOVE, TURN_LEFT, MOVE, TURN_RIGHT));
 
         // then
         assertEquals(4, marsRover.getX());

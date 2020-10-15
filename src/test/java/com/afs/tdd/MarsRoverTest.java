@@ -14,7 +14,7 @@ class MarsRoverTest {
     private final char EAST = 'E';
 
     @Test
-    void should_return_x_0_y_1_d_N_when_Mars_Rover_instruct_rover_given_x_0_y_0_d_N_and_M() {
+    void should_return_x_0_y_1_d_N_when_Mars_Rover_instruct_rover_given_x_0_y_0_d_N_and_M() throws CommandNotDefinedException {
         // given
         MarsRover marsRover = new MarsRover(0, 0, NORTH);
 
@@ -28,7 +28,7 @@ class MarsRoverTest {
     }
 
     @Test
-    void should_return_x_0_y_0_d_W_when_Mars_Rover_instruct_rover_given_x_0_y_0_d_N_and_L() {
+    void should_return_x_0_y_0_d_W_when_Mars_Rover_instruct_rover_given_x_0_y_0_d_N_and_L() throws CommandNotDefinedException {
         // given
         MarsRover marsRover = new MarsRover(0, 0, NORTH);
 
@@ -42,7 +42,7 @@ class MarsRoverTest {
     }
 
     @Test
-    void should_return_x_0_y_0_d_E_when_Mars_Rover_instruct_rover_given_x_0_y_0_d_N_and_R() {
+    void should_return_x_0_y_0_d_E_when_Mars_Rover_instruct_rover_given_x_0_y_0_d_N_and_R() throws CommandNotDefinedException {
         // given
         MarsRover marsRover = new MarsRover(0, 0, NORTH);
 
@@ -56,7 +56,7 @@ class MarsRoverTest {
     }
 
     @Test
-    void should_return_x_0_y_5_d_S_when_Mars_Rover_instruct_rover_given_x_0_y_6_d_S_and_M() {
+    void should_return_x_0_y_5_d_S_when_Mars_Rover_instruct_rover_given_x_0_y_6_d_S_and_M() throws CommandNotDefinedException {
         // given
         MarsRover marsRover = new MarsRover(0, 6, SOUTH);
 
@@ -70,7 +70,7 @@ class MarsRoverTest {
     }
 
     @Test
-    void should_return_x_0_y_0_d_E_when_Mars_Rover_instruct_rover_given_x_0_y_0_d_S_and_L() {
+    void should_return_x_0_y_0_d_E_when_Mars_Rover_instruct_rover_given_x_0_y_0_d_S_and_L() throws CommandNotDefinedException {
         // given
         MarsRover marsRover = new MarsRover(0, 0, SOUTH);
 
@@ -84,7 +84,7 @@ class MarsRoverTest {
     }
 
     @Test
-    void should_return_x_0_y_0_d_W_when_Mars_Rover_instruct_rover_given_x_0_y_0_d_S_and_R() {
+    void should_return_x_0_y_0_d_W_when_Mars_Rover_instruct_rover_given_x_0_y_0_d_S_and_R() throws CommandNotDefinedException {
         // given
         MarsRover marsRover = new MarsRover(0, 0, SOUTH);
 
@@ -98,7 +98,7 @@ class MarsRoverTest {
     }
 
     @Test
-    void should_return_x_1_y_0_d_E_when_Mars_Rover_instruct_rover_given_x_0_y_0_d_E_and_M() {
+    void should_return_x_1_y_0_d_E_when_Mars_Rover_instruct_rover_given_x_0_y_0_d_E_and_M() throws CommandNotDefinedException {
         // given
         MarsRover marsRover = new MarsRover(0, 0, EAST);
 
@@ -112,7 +112,7 @@ class MarsRoverTest {
     }
 
     @Test
-    void should_return_x_0_y_0_d_N_when_Mars_Rover_instruct_rover_given_x_0_y_0_d_E_and_L() {
+    void should_return_x_0_y_0_d_N_when_Mars_Rover_instruct_rover_given_x_0_y_0_d_E_and_L() throws CommandNotDefinedException {
         // given
         MarsRover marsRover = new MarsRover(0, 0, EAST);
 
@@ -126,7 +126,7 @@ class MarsRoverTest {
     }
 
     @Test
-    void should_return_x_0_y_0_d_S_when_Mars_Rover_instruct_rover_given_x_0_y_0_d_E_and_R() {
+    void should_return_x_0_y_0_d_S_when_Mars_Rover_instruct_rover_given_x_0_y_0_d_E_and_R() throws CommandNotDefinedException {
         // given
         MarsRover marsRover = new MarsRover(0, 0, EAST);
 
@@ -140,7 +140,7 @@ class MarsRoverTest {
     }
 
     @Test
-    void should_return_x_5_y_0_d_W_when_Mars_Rover_instruct_rover_given_x_6_y_0_d_W_and_M() {
+    void should_return_x_5_y_0_d_W_when_Mars_Rover_instruct_rover_given_x_6_y_0_d_W_and_M() throws CommandNotDefinedException {
         // given
         MarsRover marsRover = new MarsRover(6, 0, WEST);
 
@@ -154,7 +154,7 @@ class MarsRoverTest {
     }
 
     @Test
-    void should_return_x_0_y_0_d_S_when_Mars_Rover_instruct_rover_given_x_0_y_0_d_W_and_L() {
+    void should_return_x_0_y_0_d_S_when_Mars_Rover_instruct_rover_given_x_0_y_0_d_W_and_L() throws CommandNotDefinedException {
         // given
         MarsRover marsRover = new MarsRover(0, 0, WEST);
 
@@ -168,7 +168,7 @@ class MarsRoverTest {
     }
 
     @Test
-    void should_return_x_0_y_0_d_N_when_Mars_Rover_instruct_rover_given_x_0_y_0_d_W_and_R() {
+    void should_return_x_0_y_0_d_N_when_Mars_Rover_instruct_rover_given_x_0_y_0_d_W_and_R() throws CommandNotDefinedException {
         // given
         MarsRover marsRover = new MarsRover(0, 0, WEST);
 

@@ -16,13 +16,26 @@ public class MarsRover {
         this.direction = direction;
     }
 
-    public void instructRover(String instructions) {
+    public void instructRover(String instructions) throws CommandNotDefinedException {
+        validateInstructions(instructions);
+
         if (instructions.equals("M")) {
             move();
         } else if (instructions.equals("L")) {
             turnLeft();
         } else if (instructions.equals("R")) {
             turnRight();
+        }
+    }
+
+    private void validateInstructions(String instructions) throws CommandNotDefinedException {
+        boolean isValid = instructions.replace("M", "")
+                .replace("L", "")
+                .replace("R", "")
+                .trim()
+                .isEmpty();
+        if (!isValid) {
+            throw new CommandNotDefinedException();
         }
     }
 

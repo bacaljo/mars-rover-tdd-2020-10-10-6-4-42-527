@@ -136,4 +136,18 @@ class MarsRoverTest {
         assertEquals(0, marsRover.getY());
         assertEquals(SOUTH, marsRover.getDirection());
     }
+
+    @Test
+    void should_return_x_5_y_0_d_W_when_Mars_Rover_instruct_rover_given_x_6_y_0_d_W_and_M() {
+        // given
+        MarsRover marsRover = new MarsRover(6, 0, WEST);
+
+        // when
+        marsRover.instructRover("M");
+
+        // then
+        assertEquals(5, marsRover.getX());
+        assertEquals(0, marsRover.getY());
+        assertEquals(WEST, marsRover.getDirection());
+    }
 }

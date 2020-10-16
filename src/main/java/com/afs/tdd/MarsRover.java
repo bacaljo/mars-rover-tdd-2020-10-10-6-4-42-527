@@ -3,13 +3,13 @@ package com.afs.tdd;
 import com.afs.tdd.property.Direction;
 
 public class MarsRover {
-    private int x;
-    private int y;
+    private int locationX;
+    private int locationY;
     private Direction direction;
 
-    public MarsRover(int x, int y, Direction direction) {
-        this.x = x;
-        this.y = y;
+    public MarsRover(int locationX, int locationY, Direction direction) {
+        this.locationX = locationX;
+        this.locationY = locationY;
         this.direction = direction;
     }
 
@@ -34,26 +34,26 @@ public class MarsRover {
     public void move() {
         switch (direction) {
             case NORTH:
-                y++;
+                locationY++;
                 break;
             case SOUTH:
-                y--;
+                locationY--;
                 break;
             case EAST:
-                x++;
+                locationX++;
                 break;
             case WEST:
-                x--;
+                locationX--;
                 break;
         }
     }
 
-    public int getX() {
-        return x;
+    public int getLocationX() {
+        return locationX;
     }
 
-    public int getY() {
-        return y;
+    public int getLocationY() {
+        return locationY;
     }
 
     public Direction getDirection() {

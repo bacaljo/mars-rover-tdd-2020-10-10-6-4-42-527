@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Pattern;
 
 public class RoverCommandExecutor {
 
@@ -14,6 +15,8 @@ public class RoverCommandExecutor {
     private final String TURN_RIGHT = "R";
 
     private final String EMPTY_STRING = "";
+    private final String REGEX_INVALID_COMMANDS = String.format("[^%s|%s|%s]",
+            MOVE, TURN_LEFT, TURN_RIGHT);
 
     public RoverCommandExecutor(MarsRover marsRover) {
         stringCommandMap = new HashMap<>();
@@ -29,13 +32,9 @@ public class RoverCommandExecutor {
     }
 
     private void validateCommands(String commands) throws CommandNotDefinedException {
-        boolean isValid = commands.replace(MOVE, EMPTY_STRING)
-                .replace(TURN_LEFT, EMPTY_STRING)
-                .replace(TURN_RIGHT, EMPTY_STRING)
-                .trim()
-                .isEmpty();
-
-        if (!isValid) {
+        Pattern pattern = Pattern.compile(REGEX_INVALID_COMMANDS);
+        boolean hasInvalidCommands = pattern.matcher(commands).find();
+        if (hasInvalidCommands) {
             throw new CommandNotDefinedException(String.format("Commands contained unsupported values. Only the following can be used: %s, %s and %s",
                     MOVE, TURN_LEFT, TURN_RIGHT));
         }

@@ -14,21 +14,14 @@ public class MarsRover {
     }
 
     public void turnRight() {
-        int currentIndex = direction.ordinal();
-        int lastIndex = Direction.values().length - 1;
-
-        direction = (currentIndex == lastIndex)
-                ? Direction.values()[0]
-                : Direction.values()[currentIndex + 1];
+        int nextLogicalIndex = (direction.ordinal() + 1) % Direction.values().length;
+        direction = Direction.values()[nextLogicalIndex];
     }
 
     public void turnLeft() {
-        int currentIndex = direction.ordinal();
-        int lastIndex = Direction.values().length - 1;
-
-        direction = (currentIndex == 0)
-                ? Direction.values()[lastIndex]
-                : Direction.values()[currentIndex - 1];
+        int length = Direction.values().length;
+        int nextLogicalIndex = (direction.ordinal() - 1 + length) % length;
+        direction = Direction.values()[nextLogicalIndex];
     }
 
     public void move() {

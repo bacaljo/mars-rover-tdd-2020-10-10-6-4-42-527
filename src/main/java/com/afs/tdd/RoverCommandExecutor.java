@@ -1,5 +1,9 @@
 package com.afs.tdd;
 
+import com.afs.tdd.command.MoveCommand;
+import com.afs.tdd.command.TurnLeftCommand;
+import com.afs.tdd.command.TurnRightCommand;
+
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -20,9 +24,9 @@ public class RoverCommandExecutor {
 
     public RoverCommandExecutor(MarsRover marsRover) {
         stringCommandMap = new HashMap<>();
-        stringCommandMap.put(MOVE, marsRover::move);
-        stringCommandMap.put(TURN_LEFT, marsRover::turnLeft);
-        stringCommandMap.put(TURN_RIGHT, marsRover::turnRight);
+        stringCommandMap.put(MOVE, new MoveCommand(marsRover));
+        stringCommandMap.put(TURN_LEFT, new TurnLeftCommand(marsRover));
+        stringCommandMap.put(TURN_RIGHT, new TurnRightCommand(marsRover));
     }
 
     public void commandRover(String commands) throws CommandNotDefinedException {

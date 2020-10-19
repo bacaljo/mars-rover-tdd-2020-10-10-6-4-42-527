@@ -25,11 +25,22 @@ public class MarsRover {
     }
 
     public void move() {
-        int index = direction.ordinal();
-        int directionCount = Direction.values().length;
-
-        locationY += (index % 2 == 0) ? ((index + 2) % directionCount) - 1 : 0;
-        locationX += (index % 2 == 1) ? ((index + 1) % directionCount) - 1 : 0;
+        switch (direction) {
+            case NORTH:
+                locationY++;
+                break;
+            case SOUTH:
+                locationY--;
+                break;
+            case EAST:
+                locationX++;
+                break;
+            case WEST:
+                locationX--;
+                break;
+            default:
+                break;
+        }
     }
 
     public int getLocationX() {
